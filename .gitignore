@@ -19,7 +19,6 @@
 *.rar
 
 # idea files 
-
 *.idea/
 *.iml
 target/
