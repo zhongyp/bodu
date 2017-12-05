@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <hibernate.version>4.3.1.Final</hibernate.version>
+    <hibernate.version>4.3.8.Final</hibernate.version>
     <mysql-connector-java.version>5.1.36</mysql-connector-java.version>
     <dom4j.version>1.6.1</dom4j.version>
     <log4j.version>1.2.17</log4j.version>
@@ -22,24 +22,27 @@
       <artifactId>hibernate-core</artifactId>
       <version>${hibernate.version}</version>
     </dependency>
+    <!--ehcache -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-ehcache</artifactId>
+      <version>4.3.8.Final</version>
+    </dependency>
+
+    <!-- 二级缓存ehcache -->
+    <dependency>
+      <groupId>net.sf.ehcache</groupId>
+      <artifactId>ehcache</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+
+
     <dependency>
       <groupId>org.javassist</groupId>
       <artifactId>javassist</artifactId>
       <version>3.20.0-GA</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache -->
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-ehcache</artifactId>
-      <version>5.2.10.Final</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-hibernate3 -->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-hibernate3</artifactId>
-      <version>2.0.8</version>
-    </dependency>
-    <!-- mysql conncetor -->
+     <!-- mysql conncetor -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
@@ -93,5 +96,7 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+
+
   </dependencies>
 </project>

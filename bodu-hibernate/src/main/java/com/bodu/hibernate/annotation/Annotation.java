@@ -13,7 +13,6 @@ import javax.persistence.Table;
  */
 
 @Entity //标注实体
-
 @Table(name = "demo") // 修改默认表名
 public class Annotation {
 

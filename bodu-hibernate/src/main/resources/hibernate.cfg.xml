@@ -8,9 +8,22 @@
         <property name="connection.url">jdbc:mysql://localhost:3306/demo</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
+        <!-- 是否打印SQL语句 -->
         <property name="show_sql">true</property>
-        <property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+        <!-- 配置currentSession 事务 在单独JDBC连接时添加-->
+        <!-- 本地事务-->
+        <property name="hibernate.current_session_context_class">thread</property>
+        <!-- 全局事务 当服务在web容器中运行时添加
+        <property name="hibernate.current_session_context_class">jta</property>-->
         <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <!-- hibernate3 使用这个类 -->
+        <!--<property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>-->
+        <!-- 二级缓存 ehcache的配置文件位置 -->
+        <property name="hibernate.cache.provider_configuration_file_resource_path">ehcache.xml</property>
         <mapping resource="cache.hbm.xml"></mapping>
+        <mapping resource="demo.hbm.xml"></mapping>
+        <mapping class="com.bodu.hibernate.annotation.Annotation"></mapping>
     </session-factory>
 </hibernate-configuration>
