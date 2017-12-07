@@ -7,7 +7,7 @@
     <class name="com.bodu.hibernate.cache.CacheSample" table="cacheddd">
         <cache usage="read-only" />
         <id name="id">
-            <generator class="native"></generator>
+            <generator class="identity"></generator>
         </id>
         <property name="name"></property>
         <property name="age"></property>

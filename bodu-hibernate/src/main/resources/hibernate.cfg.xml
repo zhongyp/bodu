@@ -4,10 +4,14 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+        <!-- 数据库方言 -->
+        <!--<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>-->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/demo</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
+
         <!-- 是否打印SQL语句 -->
         <property name="show_sql">true</property>
         <!-- 配置currentSession 事务 在单独JDBC连接时添加-->
@@ -19,11 +23,18 @@
         <property name="hibernate.cache.use_query_cache">true</property>
         <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
         <!-- hibernate3 使用这个类 -->
+        <!--<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</property>-->
         <!--<property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>-->
         <!-- 二级缓存 ehcache的配置文件位置 -->
         <property name="hibernate.cache.provider_configuration_file_resource_path">ehcache.xml</property>
         <mapping resource="cache.hbm.xml"></mapping>
         <mapping resource="demo.hbm.xml"></mapping>
+        <mapping class="com.bodu.hibernate.cache.User"></mapping>
         <mapping class="com.bodu.hibernate.annotation.Annotation"></mapping>
+        <mapping class="com.bodu.hibernate.introduction.Department"></mapping>
+        <mapping class="com.bodu.hibernate.introduction.Employee"></mapping>
+        <mapping class="com.bodu.hibernate.introduction.SalaryGrade"></mapping>
+        <mapping class="com.bodu.hibernate.introduction.Timekeeper"></mapping>
+
     </session-factory>
 </hibernate-configuration>
