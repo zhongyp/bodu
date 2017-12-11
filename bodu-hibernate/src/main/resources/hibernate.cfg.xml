@@ -4,6 +4,8 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+        <!--自动创建表-->
+        <property name="hbm2ddl.auto">update</property>
         <!-- 数据库方言 -->
         <!--<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>-->
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -35,6 +37,9 @@
         <mapping class="com.bodu.hibernate.introduction.Employee"></mapping>
         <mapping class="com.bodu.hibernate.introduction.SalaryGrade"></mapping>
         <mapping class="com.bodu.hibernate.introduction.Timekeeper"></mapping>
-
+        <mapping resource="employee.hbm.xml"></mapping>
+        <mapping class="com.bodu.hibernate.inheritance_anno.Employee"></mapping>
+        <mapping class="com.bodu.hibernate.inheritance_anno.Contract_Employee"></mapping>
+        <mapping class="com.bodu.hibernate.inheritance_anno.Regular_Employee"></mapping>
     </session-factory>
 </hibernate-configuration>

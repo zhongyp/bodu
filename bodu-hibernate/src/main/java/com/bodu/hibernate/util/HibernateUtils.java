@@ -28,13 +28,14 @@ public class HibernateUtils {
          * configure()参数为空默认查找classes目录下hibernate.cfg.xml
          * configure("文件名")也有重载方法，参数名为配置文件名
          */
-        Configuration configuration = new Configuration().configure("hibernate.cfg.xml");//5.X版本使用，TM hibernate开发人员都是SB，我草TM一个SessionFactory改来改去
-        sessionFactory = configuration.buildSessionFactory();
-//        SessionFactory sessionFactory = configuration.buildSessionFactory();
+//        Configuration configuration = new Configuration().configure("hibernate.cfg.xml");//5.X版本使用，TM hibernate开发人员都是SB，我草TM一个SessionFactory改来改去，这个是在4.X版本中去掉，在5.X版本回归的
+//        sessionFactory = configuration.buildSessionFactory();
+        StandardServiceRegistry serviceRegistry=new StandardServiceRegistryBuilder().configure().build();//5.X版本使用，新增
+        sessionFactory=new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
+
 //        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();//4.X版本使用
 //        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-//        StandardServiceRegistry serviceRegistry=new StandardServiceRegistryBuilder().configure().build();
-//        SessionFactory sessionFactory=new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
+
     }
 
     public static SessionFactory getSessionFactory() {
