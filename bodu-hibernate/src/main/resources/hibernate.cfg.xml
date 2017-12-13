@@ -41,5 +41,9 @@
         <mapping class="com.bodu.hibernate.inheritance_anno.Employee"></mapping>
         <mapping class="com.bodu.hibernate.inheritance_anno.Contract_Employee"></mapping>
         <mapping class="com.bodu.hibernate.inheritance_anno.Regular_Employee"></mapping>
+        <mapping resource="collection.hbm.xml"></mapping>
+
+
+
     </session-factory>
 </hibernate-configuration>

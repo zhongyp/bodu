@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <!-- 当anwser为String 类型时 -->
+    <!--<class name="com.bodu.hibernate.collection.Question" table="q100">-->
+        <!--<id name="id">-->
+            <!--<generator class="increment"></generator>-->
+        <!--</id>-->
+        <!--<property name="qname"></property>-->
+
+        <!--<list name="anwsers" table="ans100">-->
+            <!--<key column="qid"></key>-->
+            <!--<index column="type"></index>-->
+            <!--<element column="answer" type="string"></element>-->
+        <!--</list>-->
+
+    <!--</class>-->
+
+    <!-- 映射列表 -->
+    <!--<class name="com.bodu.hibernate.collection.Question" table="q100">
+        <id name="id">
+            <generator class="increment"></generator>
+        </id>
+        <property name="qname"></property>
+
+        <list name="anwsers" cascade="all">
+            <key column="qid"></key>
+            <index column="type"></index>
+            <one-to-many class="com.bodu.hibernate.collection.Anwser" />
+        </list>
+
+    </class>
+    -->
+    <!-- 映射bag -->
+    <class name="com.bodu.hibernate.collection.Question" table="q100">
+        <id name="id">
+            <generator class="increment"></generator>
+        </id>
+        <property name="qname"></property>
+
+        <bag name="answers" table="ans100" cascade="all">
+            <key column="qid"></key>
+            <one-to-many class="com.bodu.hibernate.collection.Anwser"></one-to-many>
+        </bag>
+    </class>
+
+    <class name="com.bodu.hibernate.collection.Anwser" table="ans100">
+        <id name="id">
+            <generator class="increment"></generator>
+        </id>
+        <property name="answer"></property>
+    </class>
+
+</hibernate-mapping>
