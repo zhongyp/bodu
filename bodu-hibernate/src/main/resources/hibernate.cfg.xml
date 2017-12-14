@@ -42,7 +42,7 @@
         <mapping class="com.bodu.hibernate.inheritance_anno.Contract_Employee"></mapping>
         <mapping class="com.bodu.hibernate.inheritance_anno.Regular_Employee"></mapping>
         <mapping resource="collection.hbm.xml"></mapping>
-
+        <mapping resource="component.hbm.xml"></mapping>
 
 
     </session-factory>
