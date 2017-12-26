@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--<mapper namespace="com.bodu.mybatis.relation.UserMapper">-->
+    <!--&lt;!&ndash; User 级联文章查询 方法配置 (一个用户对多个文章)  &ndash;&gt;-->
+
+    <!--<resultMap type="com.bodu.mybatis.relation.User" id="resultUserMap">-->
+        <!--<result property="id" column="user_id" />-->
+        <!--<result property="username" column="username" />-->
+        <!--<result property="mobile" column="mobile" />-->
+        <!--<collection property="posts" ofType="com.bodu.mybatis.relation.Post" column="userid">-->
+            <!--<id property="id" column="post_id" javaType="int" jdbcType="INTEGER"/>-->
+            <!--<result property="title" column="title" javaType="string" jdbcType="VARCHAR"/>-->
+            <!--<result property="content" column="content" javaType="string" jdbcType="VARCHAR"/>-->
+        <!--</collection>-->
+    <!--</resultMap>-->
+
+    <!--<select id="getUser" resultMap="resultUserMap" parameterType="int">-->
+        <!--SELECT u.*,p.*-->
+        <!--FROM user1214 u, post1214 p-->
+        <!--WHERE u.id=p.userid AND id=#{user_id}-->
+    <!--</select>-->
+
+
+<!--</mapper>-->
+<mapper namespace="com.bodu.mybatis.relation.User1Mapper">
+    <!-- User 级联文章查询 方法配置 (多个文章对应一个用户)  -->
+    <resultMap type="com.bodu.mybatis.relation.Post" id="resultPostsMap">
+        <result property="id" column="post_id" />
+        <result property="title" column="title" />
+        <result property="content" column="content" />
+        <association property="user" javaType="com.bodu.mybatis.relation.User">
+            <id property="id" column="userid"/>
+            <result property="username" column="username"/>
+            <result property="mobile" column="mobile"/>
+        </association>
+    </resultMap>
+
+    <select id="getPosts" resultMap="resultPostsMap" parameterType="int">
+        SELECT u.*,p.*
+        FROM user1214 u, post1214 p
+        WHERE u.id=p.userid AND p.post_id=#{post_id}
+    </select>
+</mapper>
