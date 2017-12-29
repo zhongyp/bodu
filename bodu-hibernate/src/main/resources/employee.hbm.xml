@@ -4,6 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
+    <!-- 当多个类对应一张表时 -->
     <class name="com.bodu.hibernate.inheritance.Employee" table="emp121" discriminator-value="emp">
         <id name="id">
             <generator class="increment"></generator>
@@ -23,29 +24,28 @@
             <property name="contract_duration"></property>
         </subclass>
 
-        <!-- 当每个类对应一张表时 -->
-        <!--<class name="com.yiibai.Employee" table="emp122">-->
-            <!--<id name="id">-->
-                <!--<generator class="increment"></generator>-->
-            <!--</id>-->
-
-            <!--<property name="name"></property>-->
-
-            <!--<union-subclass name="com.yiibai.Regular_Employee"-->
-                            <!--table="regemp122">-->
-                <!--<property name="salary"></property>-->
-                <!--<property name="bonus"></property>-->
-            <!--</union-subclass>-->
-
-            <!--<union-subclass name="com.yiibai.Contract_Employee"-->
-                            <!--table="contemp122">-->
-                <!--<property name="pay_per_hour"></property>-->
-                <!--<property name="contract_duration"></property>-->
-            <!--</union-subclass>-->
-
-        <!--</class>-->
-
-
     </class>
+    <!-- 当每个类对应一张表时 -->
+    <!--<class name="com.yiibai.Employee" table="emp122">-->
+    <!--<id name="id">-->
+    <!--<generator class="increment"></generator>-->
+    <!--</id>-->
+
+    <!--<property name="name"></property>-->
+
+    <!--<union-subclass name="com.yiibai.Regular_Employee"-->
+    <!--table="regemp122">-->
+    <!--<property name="salary"></property>-->
+    <!--<property name="bonus"></property>-->
+    <!--</union-subclass>-->
+
+    <!--<union-subclass name="com.yiibai.Contract_Employee"-->
+    <!--table="contemp122">-->
+    <!--<property name="pay_per_hour"></property>-->
+    <!--<property name="contract_duration"></property>-->
+    <!--</union-subclass>-->
+
+    <!--</class>-->
+
 
 </hibernate-mapping>
