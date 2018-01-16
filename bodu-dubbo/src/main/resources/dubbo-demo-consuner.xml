@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 消费者的名称，用于跟踪依赖关系，不要和生产者名称相同  -->
+    <dubbo:application name="demo-consumer"/>
+
+    <!-- 使用广播发现服务 -->
+    <dubbo:registry address="multicast://224.5.6.7:1234"/>
+
+    <!-- 生成远程服务代理，远程服务代理可以向使用本地的接口一样使用 -->
+    <dubbo:reference id="demoService" check="false" interface="com.bodu.dubbo.api.DemoService"/>
+
+</beans>

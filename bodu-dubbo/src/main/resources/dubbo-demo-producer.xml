@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 生产者的名称，用于跟踪依赖关系 -->
+    <dubbo:application name="demo-provider"/>
+
+    <!-- 使用组播注册中心来暴露服务 -->
+    <dubbo:registry address="multicast://224.5.6.7:1234"/>
+
+    <!-- 使用dubbo协议暴露服务 -->
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!-- 接口的实现类 -->
+    <bean id="demoService" class="com.bodu.dubbo.producer.DemoServiceImpl"/>
+
+    <!-- 定义用于暴露的服务接口 -->
+    <dubbo:service interface="com.bodu.dubbo.api.DemoService" ref="demoService"/>
+
+</beans>
