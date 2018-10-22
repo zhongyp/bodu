@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
   <properties>
     <mybatis.version>3.4.4</mybatis.version>
-    <spring.version>5.x.RELEASE</spring.version>
+    <spring.version>5.1.1.RELEASE</spring.version>
   </properties>
   <dependencies>
     <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->

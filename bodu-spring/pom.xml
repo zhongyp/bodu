@@ -8,7 +8,7 @@
   <name>bodu-spring</name>
   <url>http://maven.apache.org</url>
   <properties>
-    <spring-version>5.x.RELEASE</spring-version>
+    <spring-version>5.1.1.RELEASE</spring-version>
   </properties>
   <dependencies>
     <dependency>
